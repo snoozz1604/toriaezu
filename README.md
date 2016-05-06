@@ -41,3 +41,18 @@
     $sheet->fromArray($data_set, null, 'A1');
 
 
+### スタイルのコピー）duplicateStyle
+
+文字通りスタイルの複製。あるエリアのスタイルをコピーして使う。
+
+    $sheet->getStyleByColumnAndRow($col,$row);
+    $sheet->duplicateStyle（$style,'A1');
+
+### セルの値（数式も含む）のコピー） setCellValue ＋ >getValue
+
+    $sheet->getCellByColumnAndRow($col,$row);
+    $sheet->setCellValue('A1',$cell->getValue());
+
+この$cellはコピー元のセルオブジェクト。コピー元のセルの値を取得して、そのまま新しいセルの値としてセット。
+
+
