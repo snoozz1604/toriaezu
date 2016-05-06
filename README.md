@@ -56,3 +56,24 @@
 この$cellはコピー元のセルオブジェクト。コピー元のセルの値を取得して、そのまま新しいセルの値としてセット。
 
 
+### R1C1 ⇒ A1形式
+
+１）セルの番地が欲しい場合（R1C1をA1に変更）… 'stringFromColumnIndex'
+
+    $alfa_col = PHPExcel_Cell::stringFromColumnIndex($col);
+
+　カラムは0から番号が振ってあるので、1がAではなく、0がA。
+
+　
+２）計算式が入ってるセルの結果だけが欲しい場合 … 　'getCalculatedValue’
+
+    $sheet->getCellByColumnAndRow($col,$row)->getCalculatedValue();
+
+
+３）ちなみに、セルに計算式を入れたい場合
+
+    $sheet->setCellValueByColumnAndRow($col,$row,$string);
+
+　セルに入れる計算式 $string は "=A1 / 10"とかでOK。
+
+　
